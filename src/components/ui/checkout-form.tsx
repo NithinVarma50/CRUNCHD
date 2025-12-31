@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { useCart } from "@/context/CartContext"
-import { UtensilsCrossed, CheckCircle2, Loader2 } from "lucide-react"
+import { UtensilsCrossed, CheckCircle2, Loader2, Trash2 } from "lucide-react"
 import { toast } from "sonner"
 import { useNavigate } from "react-router-dom"
 
 export default function CheckoutForm() {
-    const { cart, cartTotal } = useCart(); // Ideally clearCart would be here too
+    const { cart, cartTotal, removeFromCart } = useCart(); // Ideally clearCart would be here too
     const [tableNumber, setTableNumber] = useState("");
     const [isProcessing, setIsProcessing] = useState(false);
     const [isOrderPlaced, setIsOrderPlaced] = useState(false);
@@ -89,8 +89,17 @@ export default function CheckoutForm() {
                         ) : (
                             <div className="space-y-2">
                                 {cart.map((item, index) => (
-                                    <div key={index} className="flex justify-between text-sm">
-                                        <span className="text-foreground/80">{item.name}</span>
+                                    <div key={index} className="flex justify-between items-center text-sm">
+                                        <div className="flex items-center gap-2">
+                                            <button
+                                                onClick={() => removeFromCart(index)}
+                                                className="text-muted-foreground hover:text-red-500 transition-colors"
+                                                title="Remove Item"
+                                            >
+                                                <Trash2 size={16} />
+                                            </button>
+                                            <span className="text-foreground/80">{item.name}</span>
+                                        </div>
                                         <span className="font-medium">{item.price}</span>
                                     </div>
                                 ))}
