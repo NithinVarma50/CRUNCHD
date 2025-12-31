@@ -2,6 +2,8 @@ import chickenBurger from "@/assets/chicken-burger.png";
 import cheesePizza from "@/assets/cheese-pizza.png";
 import chaatBomb from "@/assets/chaat-bomb.png";
 import crunchMaggi from "@/assets/crunch-maggi.png";
+import { useCart } from "@/context/CartContext";
+import { toast } from "sonner";
 
 const signatureItems = [
   {
@@ -31,8 +33,15 @@ const signatureItems = [
 ];
 
 const SignatureHits = () => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (item: any) => {
+    addToCart(item);
+    toast.success(`Added ${item.name} to our plate! 🍽️`);
+  };
+
   return (
-    <section className="py-20 md:py-32 bg-primary relative overflow-hidden">
+    <section id="reviews" className="py-20 md:py-32 bg-primary relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 inset-x-0 h-16 w-full wavy-separator rotate-180 transform -translate-y-1 bg-background z-10"></div>
 
@@ -71,10 +80,12 @@ const SignatureHits = () => {
                   {item.name}
                 </h3>
                 <div className="pt-4 flex items-center justify-center gap-4">
-                  <button className="btn-poster-filled text-xs px-4 py-2 hover:scale-105 transition-transform">
+                  <button
+                    onClick={() => handleAddToCart(item)}
+                    className="btn-poster-filled text-xs px-4 py-2 hover:scale-105 transition-transform"
+                  >
                     ADD TO PLATE →
                   </button>
-                  {/* Hover Splash Effect handled via CSS utility or just implicit in the button style */}
                 </div>
               </div>
             </div>
