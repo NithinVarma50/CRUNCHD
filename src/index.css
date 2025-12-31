@@ -79,7 +79,7 @@
 
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif !important;
   }
 
   h1,
@@ -88,20 +88,21 @@
   h4,
   h5,
   h6 {
-    font-family: 'Anton', sans-serif;
-    font-weight: 400;
+    font-family: 'Anton', sans-serif !important;
+    font-weight: 400 !important;
     text-transform: uppercase;
-    letter-spacing: -0.04em;
-    line-height: 0.95;
+    letter-spacing: -0.06em !important;
+    /* Very tight spacing */
+    line-height: 0.9 !important;
   }
 }
 
 @layer components {
   .font-display {
-    font-family: 'Anton', sans-serif;
-    font-weight: 400;
+    font-family: 'Anton', sans-serif !important;
+    font-weight: 400 !important;
     text-transform: uppercase;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.06em !important;
   }
 
   .wavy-separator {
