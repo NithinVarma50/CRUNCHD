@@ -7,33 +7,33 @@ const BrandStatement = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-start">
             {/* Statement 1 */}
             <div className="text-center md:text-left">
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-[0.9] tracking-[-0.06em]">
                 WE DON'T DO<br />
                 <span className="text-primary">BORING FOOD.</span>
               </h2>
-              <p className="font-display text-2xl md:text-3xl text-white/90 mt-4 leading-relaxed">
+              <p className="font-display text-2xl md:text-3xl text-white/90 mt-4 leading-relaxed tracking-tight">
                 WE DO CRUNCH.
               </p>
             </div>
 
             {/* Statement 2 */}
             <div className="text-center">
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-[0.9] tracking-[-0.06em]">
                 STREET FOOD,<br />
                 <span className="text-primary">BUT BUILT</span>
               </h2>
-              <p className="font-display text-2xl md:text-3xl text-white/90 mt-4 leading-relaxed">
+              <p className="font-display text-2xl md:text-3xl text-white/90 mt-4 leading-relaxed tracking-tight">
                 DIFFERENT.
               </p>
             </div>
 
             {/* Statement 3 */}
             <div className="text-center md:text-right">
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary leading-tight">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary leading-[0.9] tracking-[-0.06em]">
                 FAST.<br />
                 LOUD.
               </h2>
-              <p className="font-display text-2xl md:text-3xl text-white/90 mt-4 leading-relaxed">
+              <p className="font-display text-2xl md:text-3xl text-white/90 mt-4 leading-relaxed tracking-tight">
                 UNAPOLOGETIC.
               </p>
             </div>

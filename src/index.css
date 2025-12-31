@@ -79,7 +79,7 @@
 
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground;
-    font-family: 'Inter', system-ui, sans-serif !important;
+    font-family: 'Anton', sans-serif !important;
   }
 
   h1,

@@ -7,7 +7,7 @@ const Location = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
           <div className="text-left space-y-6 md:space-y-8 order-2 lg:order-1">
-            <h2 className="font-display text-5xl md:text-6xl lg:text-8xl text-foreground leading-[0.9] tracking-tighter">
+            <h2 className="font-display text-5xl md:text-6xl lg:text-8xl text-foreground leading-[0.85] tracking-[-0.08em] uppercase">
               WE'RE NOT <br />
               EVERYWHERE.<br />
               <span className="text-primary">WE'RE RIGHT HERE.</span>
