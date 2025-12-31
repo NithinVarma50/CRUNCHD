@@ -1,27 +1,19 @@
 import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-
-interface FloatingImageProps {
-    src: string;
-    alt: string;
-    className: string;
-}
+import { cn } from "@/lib/utils"; // Ensure you have a utils file for cn or use classNames
 
 interface FloatingFoodHeroProps {
-    title: string;
-    description: string;
-    images: FloatingImageProps[];
-    className?: string;
-    children?: React.ReactNode;
+    title?: string;
+    description?: string;
+    image1?: string;
+    image2?: string;
 }
 
 const FloatingFoodHero: React.FC<FloatingFoodHeroProps> = ({
-    title,
-    description,
-    images,
-    className,
-    children
+    title = "CRUNCHD",
+    description = "STREET FOOD. EXTRA CRUNCH. Built for cravings. Served loud. Gone fast.",
+    image1, // Chicken Burger
+    image2, // Pizza
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -46,15 +38,13 @@ const FloatingFoodHero: React.FC<FloatingFoodHeroProps> = ({
     };
 
     return (
-        <section
+        <div
             ref={containerRef}
-            className={cn(
-                'relative w-full min-h-[60vh] md:min-h-[85vh] bg-primary overflow-hidden flex items-center justify-center pt-16 md:pt-0',
-                className
-            )}
+            className="relative w-full min-h-[60vh] md:min-h-[85vh] bg-primary overflow-hidden flex items-center justify-center pt-16 md:pt-0"
         >
             {/* Background Doodles */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none z-0">
+            <div className="absolute inset-0 opacity-10 pointer-events-none">
+                {/* Doodle SVG Pattern - can be replaced with an image if needed */}
                 <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <pattern id="stickers" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
@@ -67,24 +57,8 @@ const FloatingFoodHero: React.FC<FloatingFoodHeroProps> = ({
                 </svg>
             </div>
 
-            {/* Render floating images */}
-            <div className="absolute inset-0 z-10 pointer-events-none hidden sm:block">
-                {images.map((image, index) => (
-                    <img
-                        key={index}
-                        src={image.src}
-                        alt={image.alt}
-                        className={cn('absolute object-contain', image.className)}
-                        style={{
-                            animationDelay: `${index * 300}ms`,
-                            transform: `translate(var(--move-x), var(--move-y))` // Apply slight parallax if desired or let CSS animation handle it
-                        }}
-                    />
-                ))}
-            </div>
-
             {/* Content Container */}
-            <div className="relative z-20 container px-4 md:px-6 text-center max-w-4xl flex flex-col items-center">
+            <div className="relative z-10 container px-4 md:px-6 text-center">
                 {/* Main Title - Sticker Effect */}
                 <div className="relative inline-block mb-4 md:mb-6 group">
                     <div className="absolute inset-0 bg-black translate-x-1 translate-y-1 md:translate-x-3 md:translate-y-3 rounded-sm"></div>
@@ -102,33 +76,55 @@ const FloatingFoodHero: React.FC<FloatingFoodHeroProps> = ({
                     {description}
                 </p>
 
-                {children}
-
                 {/* CTA Buttons - Compact on Mobile */}
-                {!children && (
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6">
-                        <Button
-                            size="lg"
-                            className="bg-black text-white hover:bg-white hover:text-black border-2 border-transparent hover:border-black text-lg md:text-xl px-8 md:px-10 py-4 md:py-6 h-auto font-display skew-x-[-6deg] transition-all shadow-[4px_4px_0px_#ffffff] hover:shadow-[2px_2px_0px_#000000]"
-                            onClick={() => scrollToSection("menu")}
-                        >
-                            ORDER NOW 🍔
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-black text-lg md:text-xl px-8 md:px-10 py-4 md:py-6 h-auto font-display skew-x-[-6deg] transition-all"
-                            onClick={() => scrollToSection("reviews")}
-                        >
-                            VIEW REVIEWS ⭐
-                        </Button>
-                    </div>
-                )}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6">
+                    <Button
+                        size="lg"
+                        className="bg-black text-white hover:bg-white hover:text-black border-2 border-transparent hover:border-black text-lg md:text-xl px-8 md:px-10 py-4 md:py-6 h-auto font-display skew-x-[-6deg] transition-all shadow-[4px_4px_0px_#ffffff] hover:shadow-[2px_2px_0px_#000000]"
+                        onClick={() => scrollToSection("menu")}
+                    >
+                        ORDER NOW 🍔
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="lg"
+                        className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-black text-lg md:text-xl px-8 md:px-10 py-4 md:py-6 h-auto font-display skew-x-[-6deg] transition-all"
+                        onClick={() => scrollToSection("reviews")}
+                    >
+                        VIEW REVIEWS ⭐
+                    </Button>
+                </div>
+            </div>
+
+            {/* Floating Elements - Adjusted for Mobile Visibility */}
+            <div
+                className="absolute top-1/4 -left-4 md:left-10 w-24 md:w-48 animate-float hidden sm:block"
+                style={{ transform: `translate(var(--move-x), var(--move-y))` }}
+            >
+                <img
+                    src={image2}
+                    alt="Pizza"
+                    className="w-full drop-shadow-2xl rotate-[-15deg] hover:rotate-0 transition-transform duration-500"
+                />
+            </div>
+
+            <div
+                className="absolute bottom-1/4 -right-4 md:right-10 w-28 md:w-56 animate-float"
+                style={{
+                    animationDelay: "2s",
+                    transform: `translate(calc(var(--move-x) * -1), calc(var(--move-y) * -1))`
+                }}
+            >
+                <img
+                    src={image1}
+                    alt="Burger"
+                    className="w-full drop-shadow-2xl rotate-[15deg] hover:rotate-0 transition-transform duration-500"
+                />
             </div>
 
             {/* Bottom Wave - Clean */}
             <div className="absolute bottom-0 inset-x-0 h-12 md:h-16 w-full wavy-separator bg-background transform translate-y-1 z-20"></div>
-        </section>
+        </div>
     );
 };
 
