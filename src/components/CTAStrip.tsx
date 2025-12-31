@@ -1,24 +1,24 @@
+import { useNavigate } from "react-router-dom";
+
 const CTAStrip = () => {
-  const scrollToMenu = () => {
-    const element = document.getElementById("menu");
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
+  const navigate = useNavigate();
 
   return (
-    <section className="bg-primary py-24 relative overflow-hidden">
-      {/* Background Texture */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black to-transparent pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 text-center relative z-10">
-        <h2 className="font-display text-5xl md:text-7xl lg:text-9xl text-primary-foreground mb-12 tracking-tighter leading-none">
-          READY FOR A<br />FLAVOR ADVENTURE?
+    <section className="bg-primary/5 py-24 relative overflow-hidden border-t border-border/10">
+      <div className="container mx-auto px-6 text-center">
+        <h2 className="font-display text-4xl md:text-6xl text-foreground mb-8 leading-tight">
+          READY FOR A <br />
+          <span className="text-primary">FLAVOR ADVENTURE?</span>
         </h2>
-        <button
-          onClick={scrollToMenu}
-          className="btn-poster bg-background text-foreground border-2 border-background hover:bg-transparent hover:text-background text-xl md:text-2xl px-12 py-6"
-        >
-          COME GET CRUNCHD
-        </button>
+
+        <div className="flex justify-center">
+          <button
+            onClick={() => navigate("/checkout")}
+            className="btn-poster-filled text-xl px-12 py-4 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all"
+          >
+            COME GET CRUNCHD
+          </button>
+        </div>
       </div>
     </section>
   );

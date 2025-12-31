@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useCart } from "@/context/CartContext";
+import { toast } from "sonner";
 
 const menuCategories = [
   {
@@ -65,6 +67,12 @@ const menuCategories = [
 
 const FullMenu = () => {
   const [activeCategory, setActiveCategory] = useState(0);
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (item: { name: string; price: string }) => {
+    addToCart(item);
+    toast.success(`Added ${item.name} to cart!`);
+  };
 
   return (
     <section id="menu" className="py-20 md:py-32 bg-background min-h-screen">
@@ -107,7 +115,10 @@ const FullMenu = () => {
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="font-display text-xl text-primary">{item.price}</span>
-                    <button className="opacity-0 group-hover:opacity-100 transition-opacity text-xs bg-foreground text-background px-2 py-1 rounded-sm font-bold">
+                    <button
+                      onClick={() => handleAddToCart(item)}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity text-xs bg-foreground text-background px-3 py-1 rounded-sm font-bold hover:bg-primary hover:text-primary-foreground"
+                    >
                       ADD
                     </button>
                   </div>
