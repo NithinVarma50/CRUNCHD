@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
+/**
+ * Header Component
+ * Black background as requested, with white text/logo.
+ */
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -20,47 +24,49 @@ const Header = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-md border-b border-border/10 py-3 shadow-sm" : "bg-transparent py-5"
-      }`}
+    <header
+      className={`fixed top-4 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-0`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className={`container mx-auto px-6 py-4 rounded-xl flex items-center justify-between transition-all duration-300 shadow-xl ${scrolled ? "bg-black/95 backdrop-blur-sm" : "bg-black"
+        }`}>
         {/* Logo */}
-        <h1 
-          className="font-display text-4xl text-primary cursor-pointer tracking-wider hover:scale-105 transition-transform"
+        <div
+          className="bg-white px-2 py-0.5 -skew-x-6 cursor-pointer hover:scale-105 transition-transform"
           onClick={() => scrollToSection("hero")}
         >
-          THE CHOMPO
-        </h1>
+          <h1 className="font-display text-3xl md:text-4xl text-black tracking-wider skew-x-6">
+            CRUNCHD
+          </h1>
+        </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10">
-          <button 
+        <nav className="hidden md:flex items-center gap-8">
+          <button
             onClick={() => scrollToSection("menu")}
-            className="font-display text-lg tracking-wide hover:text-primary transition-colors relative group"
+            className="font-display text-lg tracking-wide text-white hover:text-primary transition-colors relative group"
           >
             MENU
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection("reviews")}
-            className="font-display text-lg tracking-wide hover:text-primary transition-colors relative group"
+            className="font-display text-lg tracking-wide text-white hover:text-primary transition-colors relative group"
           >
             REVIEWS
-             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
           </button>
-          <button 
+
+          <button
             onClick={() => scrollToSection("location")}
-            className="btn-poster bg-transparent border-2 border-foreground hover:bg-foreground hover:text-background text-sm px-6 py-2"
+            className="bg-white text-black font-display text-sm tracking-wider px-6 py-2 rounded-sm hover:bg-primary hover:text-white transition-colors uppercase border-2 border-transparent hover:border-white"
           >
-            FIND LOCATION
+            Find Location
           </button>
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <button 
-          className="md:hidden text-foreground hover:text-primary transition-colors"
+        <button
+          className="md:hidden text-white hover:text-primary transition-colors"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
@@ -68,26 +74,25 @@ const Header = () => {
       </div>
 
       {/* Mobile Nav */}
-      <div 
-        className={`md:hidden fixed inset-0 bg-background z-40 flex flex-col items-center justify-center gap-8 transition-transform duration-300 ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+      <div
+        className={`md:hidden fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
-        <button 
+        <button
           onClick={() => scrollToSection("menu")}
-          className="font-display text-4xl hover:text-primary transition-colors"
+          className="font-display text-4xl text-white hover:text-primary transition-colors"
         >
           MENU
         </button>
-        <button 
+        <button
           onClick={() => scrollToSection("reviews")}
-          className="font-display text-4xl hover:text-primary transition-colors"
+          className="font-display text-4xl text-white hover:text-primary transition-colors"
         >
           REVIEWS
         </button>
-        <button 
+        <button
           onClick={() => scrollToSection("location")}
-          className="btn-poster bg-foreground text-background text-xl px-10 py-4"
+          className="font-display text-2xl bg-white text-black px-8 py-3 rounded-sm"
         >
           FIND LOCATION
         </button>
