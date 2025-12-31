@@ -79,7 +79,7 @@
 
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground;
-    font-family: 'Anton', 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
   h1,
@@ -90,9 +90,9 @@
   h6 {
     font-family: 'Anton', sans-serif;
     font-weight: 400;
-    /* Anton is usually a single weight, often bold-ish by default */
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
   }
 }
 
@@ -101,7 +101,7 @@
     font-family: 'Anton', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.04em;
   }
 
   .wavy-separator {

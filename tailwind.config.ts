@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         display: ["Anton", "sans-serif"],
-        body: ["Anton", "Inter", "system-ui", "sans-serif"],
+        body: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
