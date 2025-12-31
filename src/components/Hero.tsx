@@ -1,4 +1,4 @@
-import FloatingFoodHero from '@/components/ui/hero-section-7';
+import { FloatingFoodHero } from '@/components/ui/hero-section-7';
 import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
