@@ -213,6 +213,21 @@
       transform: translateX(-50%);
     }
   }
+
+  /* Spin Slow - Clean Rotation */
+  .spin-slow {
+    animation: spin 10s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 /* Custom scrollbar */
