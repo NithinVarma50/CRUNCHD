@@ -1,31 +1,33 @@
+import { Star } from "lucide-react";
+
 const reviews = [
   {
-    text: "Bro that crunch was illegal.",
+    text: "Bro that crunch was illegal. The best burger I've had in years.",
     author: "Arjun S.",
     rating: 5,
   },
   {
-    text: "Didn't expect street food to slap this hard.",
+    text: "Didn't expect street food to slap this hard. 10/10 recommendation.",
     author: "Priya M.",
     rating: 5,
   },
   {
-    text: "Came hungry. Left happy.",
+    text: "Came hungry. Left happy. The portions are massive!",
     author: "Rahul K.",
     rating: 5,
   },
   {
-    text: "The cheese pull on that pizza? INSANE.",
+    text: "The cheese pull on that pizza? INSANE. Totally worth the hype.",
     author: "Sneha R.",
     rating: 5,
   },
   {
-    text: "My go-to spot for late night cravings.",
+    text: "My go-to spot for late night cravings. Always fresh.",
     author: "Vikram T.",
     rating: 5,
   },
   {
-    text: "Flavor so good it should be a crime.",
+    text: "Flavor so good it should be a crime. Spicy, tangy, perfect.",
     author: "Ananya P.",
     rating: 5,
   },
@@ -33,42 +35,42 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <section id="reviews" className="py-16 md:py-24 bg-primary wavy-border relative">
-      <div className="container mx-auto px-4">
-        <h2 className="font-display text-5xl md:text-7xl text-primary-foreground text-center mb-4">
-          REAL TALK
-        </h2>
-        <p className="font-display text-2xl md:text-3xl text-primary-foreground/80 text-center mb-12 md:mb-16">
-          FROM REAL FOODIES
-        </p>
+    <section id="reviews" className="py-20 md:py-32 bg-primary relative">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16 space-y-4">
+          <h2 className="font-display text-5xl md:text-8xl text-primary-foreground tracking-tighter">
+            REAL TALK
+          </h2>
+          <p className="text-primary-foreground/80 font-display text-2xl md:text-3xl">
+            FROM REAL FOODIES
+          </p>
+        </div>
 
-        {/* Reviews grid - sticker style cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Reviews grid - Clean, organized cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-background p-6 md:p-8 border-4 border-foreground transform transition-all duration-300 hover:-translate-y-2 hover:rotate-1"
-              style={{
-                boxShadow: "6px 6px 0 0 hsl(var(--foreground))",
-                transform: `rotate(${index % 2 === 0 ? -2 : 2}deg)`,
-              }}
+              className="bg-background p-8 border border-transparent hover:border-foreground/10 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md"
             >
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 mb-6 text-primary">
                 {[...Array(review.rating)].map((_, i) => (
-                  <span key={i} className="text-xl">⭐</span>
+                  <Star key={i} size={20} fill="currentColor" />
                 ))}
               </div>
 
-              {/* Quote */}
-              <p className="font-display text-xl md:text-2xl text-foreground mb-4">
+              <p className="font-display text-xl leading-relaxed text-foreground mb-6 min-h-[80px]">
                 "{review.text}"
               </p>
 
-              {/* Author */}
-              <p className="text-muted-foreground font-body">
-                — {review.author}
-              </p>
+              <div className="flex items-center gap-4 border-t border-border/10 pt-4">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-display text-primary">
+                  {review.author[0]}
+                </div>
+                <p className="text-muted-foreground font-medium text-sm">
+                  {review.author}
+                </p>
+              </div>
             </div>
           ))}
         </div>

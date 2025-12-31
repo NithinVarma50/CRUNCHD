@@ -1,5 +1,5 @@
 import chickenBurger from "@/assets/chicken-burger.png";
-import cheesePizza from "@/assets/cheese-pizza.png";
+import { ArrowMax, ArrowRight } from "lucide-react";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -8,73 +8,71 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen bg-primary pt-24 pb-16 overflow-hidden wavy-border">
-      {/* Hand-drawn doodles */}
-      <div className="absolute top-32 left-4 md:left-12 text-primary-foreground opacity-60">
-        <svg width="60" height="40" viewBox="0 0 60 40" fill="none" className="bounce-slow">
-          <path d="M5 35 Q30 5 55 25" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round"/>
-          <path d="M45 15 L55 25 L45 30" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </div>
-      <div className="absolute top-40 right-8 md:right-20 text-primary-foreground opacity-60">
-        <svg width="80" height="50" viewBox="0 0 80 50" fill="none" className="animate-float">
-          <ellipse cx="40" cy="25" rx="35" ry="20" stroke="currentColor" strokeWidth="2" fill="none" strokeDasharray="8 4"/>
-        </svg>
-      </div>
+    <section id="hero" className="relative h-screen min-h-[800px] flex items-center overflow-hidden bg-background">
+      {/* Background Graphic Stripe */}
+      <div className="absolute top-0 right-0 w-[40%] h-full bg-primary/10 -skew-x-12 origin-top-right transform translate-x-1/4 hidden lg:block" />
 
-      {/* Floating food images */}
-      <img 
-        src={chickenBurger} 
-        alt="Crispy chicken burger" 
-        className="absolute -right-20 md:right-10 top-1/3 w-48 md:w-72 lg:w-96 animate-float opacity-90 rotate-12 hidden sm:block"
-      />
-      <img 
-        src={cheesePizza} 
-        alt="Cheese burst pizza" 
-        className="absolute -left-16 md:left-10 bottom-32 w-40 md:w-64 lg:w-80 animate-float opacity-90 -rotate-12 hidden sm:block"
-        style={{ animationDelay: "1s" }}
-      />
+      <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center h-full pt-20">
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center pt-12 md:pt-24">
-          {/* Main Title */}
-          <h1 className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] text-primary-foreground leading-none tracking-tight">
-            CRUNCHD
+        {/* Left: Typography */}
+        <div className="flex flex-col items-start text-left space-y-6">
+          <div className="inline-block bg-primary text-primary-foreground px-4 py-1 font-display tracking-widest text-sm rotate-2">
+            THE AMAZING FOOD YOU EVER TASTED
+          </div>
+
+          <h1 className="font-display text-[5rem] sm:text-[7rem] md:text-[9rem] leading-[0.85] text-primary tracking-tighter uppercase drop-shadow-sm">
+            THE <br />
+            <span className="text-foreground">CHOMPO</span>
           </h1>
-          
-          {/* Tagline */}
-          <p className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-foreground mt-4 md:mt-6">
-            STREET FOOD. EXTRA CRUNCH.
+
+          <p className="font-body text-xl md:text-2xl text-muted-foreground max-w-md border-l-4 border-primary pl-4">
+            Crave, the chompo way. Get ready to crunch.
           </p>
 
-          {/* Subtext */}
-          <p className="text-primary-foreground/80 text-lg md:text-xl mt-6 md:mt-8 font-body italic max-w-md mx-auto">
-            "Built for cravings. Served loud. Gone fast."
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10 md:mt-14">
-            <button 
+          <div className="flex flex-wrap gap-4 pt-4">
+            <button
               onClick={() => scrollToSection("menu")}
-              className="sticker-button bg-primary-foreground text-foreground text-xl"
+              className="btn-poster-filled text-xl group flex items-center gap-2"
+            >
+              ORDER NOW <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </button>
+            <button
+              onClick={() => scrollToSection("location")}
+              className="btn-poster text-xl"
             >
               VIEW MENU
             </button>
-            <button 
-              onClick={() => scrollToSection("location")}
-              className="sticker-button bg-transparent text-primary-foreground border-primary-foreground text-xl"
-            >
-              FIND US
-            </button>
-          </div>
-
-          {/* Bite mark decoration */}
-          <div className="absolute bottom-10 left-1/4 text-primary-foreground/40 hidden lg:block">
-            <svg width="80" height="60" viewBox="0 0 80 60" fill="currentColor">
-              <path d="M10 30 Q20 10 40 20 Q60 30 70 15 L65 45 Q45 55 25 50 Q10 45 10 30Z"/>
-            </svg>
           </div>
         </div>
+
+        {/* Right: Blended Image Composition */}
+        <div className="relative w-full h-[500px] lg:h-[700px] flex items-center justify-center">
+          {/* Main Hero Image with Blending */}
+          <div className="relative z-10 w-full max-w-[600px] hover:scale-105 transition-transform duration-700 ease-out">
+            <img
+              src={chickenBurger}
+              alt="The Chompo Burger"
+              className="w-full h-auto object-contain drop-shadow-2xl"
+            />
+            {/* Blending overlay gradient at the bottom to merge with background/content below */}
+            <div className="absolute -bottom-10 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-20 pointer-events-none"></div>
+          </div>
+
+          {/* Decorative blended text behind the burger */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 whitespace-nowrap opacity-10 select-none pointer-events-none">
+            <span className="font-display text-[12rem] text-primary image-blend-multiply">CRUNCHY</span>
+          </div>
+
+          {/* Floating Illustration Elements (keeping it organized, not random) */}
+          <div className="absolute top-10 right-10 w-24 h-24 border-4 border-foreground rounded-full flex items-center justify-center animate-spin-slow opacity-20 hidden lg:flex">
+            <span className="font-display text-xs">EST 2024</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Wave Divider */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <div className="wavy-separator h-12 bg-repeat-x"></div>
       </div>
     </section>
   );

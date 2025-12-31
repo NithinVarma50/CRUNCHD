@@ -1,52 +1,62 @@
-import { Instagram, MessageCircle, MapPin } from "lucide-react";
+import { Instagram, MessageCircle, MapPin, ArrowUpRight } from "lucide-react";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-foreground text-background py-12 md:py-16">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Logo */}
-          <div className="text-center md:text-left">
-            <h2 className="font-display text-4xl md:text-5xl text-primary mb-2">
-              CRUNCHD
+    <footer className="bg-foreground text-background pt-20 pb-10 overflow-hidden relative">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-background/10 pb-16">
+
+          {/* Brand Column */}
+          <div className="md:col-span-6 space-y-6">
+            <h2 className="font-display text-[5rem] md:text-[8rem] leading-[0.8] text-primary select-none">
+              CHOMPO
             </h2>
-            <p className="text-background/70">Street Food. Extra Crunch.</p>
+            <p className="text-background/60 text-xl max-w-md">
+              Street food reimagined. Bold flavors, fresh ingredients, and zero apologies.
+            </p>
           </div>
 
-          {/* Social links */}
-          <div className="flex items-center gap-6">
-            <a 
-              href="#" 
-              className="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:bg-accent transition-colors"
-              aria-label="Instagram"
-            >
-              <Instagram size={24} className="text-primary-foreground" />
-            </a>
-            <a 
-              href="#" 
-              className="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:bg-accent transition-colors"
-              aria-label="WhatsApp"
-            >
-              <MessageCircle size={24} className="text-primary-foreground" />
-            </a>
-            <a 
-              href="#" 
-              className="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:bg-accent transition-colors"
-              aria-label="Location"
-            >
-              <MapPin size={24} className="text-primary-foreground" />
+          {/* Links Column */}
+          <div className="md:col-span-3 space-y-6 pt-4">
+            <h3 className="font-display text-2xl text-background">EXPLORE</h3>
+            <ul className="space-y-4 text-background/80 font-medium">
+              <li><a href="#menu" className="hover:text-primary transition-colors">Our Menu</a></li>
+              <li><a href="#story" className="hover:text-primary transition-colors">Our Story</a></li>
+              <li><a href="#locations" className="hover:text-primary transition-colors">Locations</a></li>
+              <li><a href="#franchise" className="hover:text-primary transition-colors">Franchise</a></li>
+            </ul>
+          </div>
+
+          {/* Social / Contact */}
+          <div className="md:col-span-3 space-y-6 pt-4">
+            <h3 className="font-display text-2xl text-background">CONNECT</h3>
+            <div className="flex gap-4">
+              <a href="#" className="w-12 h-12 border border-background/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary hover:text-foreground transition-all group">
+                <Instagram size={20} />
+              </a>
+              <a href="#" className="w-12 h-12 border border-background/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary hover:text-foreground transition-all group">
+                <MessageCircle size={20} />
+              </a>
+              <a href="#" className="w-12 h-12 border border-background/20 rounded-full flex items-center justify-center hover:bg-primary hover:border-primary hover:text-foreground transition-all group">
+                <MapPin size={20} />
+              </a>
+            </div>
+            <a href="mailto:hello@chompo.com" className="inline-flex items-center gap-2 text-background/60 hover:text-primary transition-colors">
+              hello@chompo.com <ArrowUpRight size={16} />
             </a>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-background/20 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-background/50 text-sm">
-            CRUNCHD © {new Date().getFullYear()}. All rights reserved.
-          </p>
-          <p className="text-background/50 text-sm italic">
-            Crunch responsibly. 🔥
-          </p>
+        {/* Bottom Bar */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 text-sm text-background/40">
+          <p>© {currentYear} THE CHOMPO CO.</p>
+          <div className="flex gap-8">
+            <a href="#" className="hover:text-background transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-background transition-colors">Terms of Service</a>
+          </div>
+          <p className="font-display tracking-widest text-primary">MADE FRESH DAILY</p>
         </div>
       </div>
     </footer>

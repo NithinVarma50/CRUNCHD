@@ -3,7 +3,6 @@ import { useState } from "react";
 const menuCategories = [
   {
     name: "CHICKEN MODE",
-    emoji: "🐔",
     items: [
       { name: "Crunch Chicken Fried Rice", price: "₹129" },
       { name: "Spicy Chicken Noodles", price: "₹119" },
@@ -14,8 +13,7 @@ const menuCategories = [
     ],
   },
   {
-    name: "BURGER & PIZZA CLUB",
-    emoji: "🍔",
+    name: "BURGER & PIZZA",
     items: [
       { name: "Classic Crunch Burger", price: "₹129" },
       { name: "Double Patty Smash Burger", price: "₹179" },
@@ -26,8 +24,7 @@ const menuCategories = [
     ],
   },
   {
-    name: "MOMO & WRAP ZONE",
-    emoji: "🥟",
+    name: "MOMO & WRAP",
     items: [
       { name: "Veg Steam Momos", price: "₹79" },
       { name: "Fried Chicken Momos", price: "₹99" },
@@ -37,8 +34,7 @@ const menuCategories = [
     ],
   },
   {
-    name: "PASTA & NOODLE LAB",
-    emoji: "🍝",
+    name: "PASTA & NOODLES",
     items: [
       { name: "White Sauce Pasta", price: "₹129" },
       { name: "Red Sauce Pasta", price: "₹119" },
@@ -48,8 +44,7 @@ const menuCategories = [
     ],
   },
   {
-    name: "SIDES & CHAOS",
-    emoji: "🍟",
+    name: "SIDES",
     items: [
       { name: "Peri Peri Fries", price: "₹79" },
       { name: "Cheese Loaded Fries", price: "₹99" },
@@ -59,7 +54,6 @@ const menuCategories = [
   },
   {
     name: "DRINKS",
-    emoji: "🧃",
     items: [
       { name: "Cold Coffee Chaos", price: "₹79" },
       { name: "Oreo Shake", price: "₹99" },
@@ -73,62 +67,47 @@ const FullMenu = () => {
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
-    <section id="menu" className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4">
-        <h2 className="font-display text-5xl md:text-7xl text-foreground text-center mb-4">
-          THE <span className="text-primary">MENU</span>
-        </h2>
-        <p className="text-muted-foreground text-center text-lg md:text-xl mb-12">
-          Pick your poison. No judgement.
-        </p>
-
-        {/* Category tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {menuCategories.map((category, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveCategory(index)}
-              className={`font-display text-sm md:text-base px-4 py-2 border-2 border-foreground transition-all duration-200 shake-hover ${
-                activeCategory === index
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-background text-foreground hover:bg-muted"
-              }`}
-              style={{
-                boxShadow: activeCategory === index ? "4px 4px 0 0 hsl(var(--foreground))" : "none",
-              }}
-            >
-              {category.emoji} {category.name}
-            </button>
-          ))}
+    <section id="menu" className="py-20 md:py-32 bg-background min-h-screen">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="font-display text-5xl md:text-8xl text-foreground">
+            THE MENU
+          </h2>
+          <p className="text-muted-foreground text-xl">
+            Pick your poison. No judgement.
+          </p>
         </div>
 
-        {/* Menu items grid */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-foreground text-background p-8 md:p-12 border-4 border-foreground" style={{ boxShadow: "12px 12px 0 0 hsl(var(--primary))" }}>
-            <h3 className="font-display text-3xl md:text-4xl text-primary mb-8 flex items-center gap-3">
-              <span className="text-4xl">{menuCategories[activeCategory].emoji}</span>
-              {menuCategories[activeCategory].name}
-            </h3>
+        <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+          {/* Sidebar Categories (Desktop) / Horizontal Scroll (Mobile) */}
+          <div className="w-full lg:w-1/4 flex lg:flex-col gap-2 overflow-x-auto pb-4 lg:pb-0 scrollbar-hide">
+            {menuCategories.map((category, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveCategory(index)}
+                className={`text-left px-6 py-4 font-display text-xl transition-all duration-300 border-l-4 whitespace-nowrap ${activeCategory === index
+                    ? "border-primary text-primary bg-primary/5 pl-8"
+                    : "border-transparent text-muted-foreground hover:text-foreground hover:pl-8"
+                  }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
 
-            <div className="space-y-4">
+          {/* Menu Items Grid */}
+          <div className="w-full lg:w-3/4">
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 key={activeCategory}">
               {menuCategories[activeCategory].items.map((item, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center justify-between border-b border-background/20 pb-4 last:border-b-0 group"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="font-display text-xl text-primary group-hover:scale-125 transition-transform">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span className="text-lg md:text-xl group-hover:text-primary transition-colors">
+                <div key={index} className="group flex justify-between items-baseline border-b border-dashed border-muted-foreground/20 pb-2">
+                  <div>
+                    <h4 className="font-display text-lg text-foreground group-hover:text-primary transition-colors">
                       {item.name}
-                    </span>
+                    </h4>
                   </div>
                   <div className="flex items-center gap-4">
-                    <span className="font-display text-xl text-primary">
-                      {item.price}
-                    </span>
-                    <button className="opacity-0 group-hover:opacity-100 transition-opacity font-display text-xs bg-primary text-primary-foreground px-3 py-1">
+                    <span className="font-display text-xl text-primary">{item.price}</span>
+                    <button className="opacity-0 group-hover:opacity-100 transition-opacity text-xs bg-foreground text-background px-2 py-1 rounded-sm font-bold">
                       ADD
                     </button>
                   </div>

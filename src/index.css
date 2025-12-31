@@ -3,71 +3,70 @@
 @tailwind utilities;
 
 @import "@fontsource/anton";
+@import "@fontsource/inter";
 
 @layer base {
   :root {
-    /* CRUNCHD Design System - Poster Style */
-    --background: 42 67% 95%;
+    /* CRUNCHD Design System - Polished Poster */
+    --background: 40 50% 98%; /* Softer, cleaner cream */
     --foreground: 0 0% 5%;
 
-    --card: 42 67% 95%;
+    --card: 40 50% 98%;
     --card-foreground: 0 0% 5%;
 
-    --popover: 42 67% 95%;
+    --popover: 40 50% 98%;
     --popover-foreground: 0 0% 5%;
 
-    /* Bold Red - Primary Brand Color */
-    --primary: 0 84% 45%;
-    --primary-foreground: 42 67% 95%;
+    /* Deep, Rich Red - Premium Brand Color */
+    --primary: 0 85% 42%;
+    --primary-foreground: 40 50% 98%;
 
-    /* Cream - Secondary */
-    --secondary: 42 67% 95%;
+    --secondary: 40 30% 94%;
     --secondary-foreground: 0 0% 5%;
 
-    --muted: 42 40% 88%;
-    --muted-foreground: 0 0% 30%;
+    --muted: 40 20% 90%;
+    --muted-foreground: 0 0% 40%;
 
-    /* Accent Red Lighter */
-    --accent: 0 84% 55%;
-    --accent-foreground: 42 67% 95%;
+    --accent: 0 85% 50%;
+    --accent-foreground: 40 50% 98%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 42 67% 95%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 40 50% 98%;
 
-    --border: 0 0% 15%;
-    --input: 42 40% 88%;
-    --ring: 0 84% 45%;
+    --border: 0 0% 10%;
+    --input: 40 20% 90%;
+    --ring: 0 85% 42%;
 
-    --radius: 0rem;
+    --radius: 0.5rem;
 
     /* Custom CRUNCHD tokens */
-    --crunchd-red: 0 84% 45%;
-    --crunchd-cream: 42 67% 95%;
+    --crunchd-red: 0 85% 42%;
+    --crunchd-cream: 40 50% 98%;
     --crunchd-black: 0 0% 5%;
-    --crunchd-red-dark: 0 84% 35%;
-    --crunchd-cream-dark: 42 50% 85%;
+    --crunchd-red-dark: 0 85% 32%;
+    --crunchd-cream-dark: 40 40% 90%;
   }
 
   .dark {
     --background: 0 0% 5%;
-    --foreground: 42 67% 95%;
+    --foreground: 40 50% 98%;
     --card: 0 0% 8%;
-    --card-foreground: 42 67% 95%;
+    --card-foreground: 40 50% 98%;
     --popover: 0 0% 8%;
-    --popover-foreground: 42 67% 95%;
-    --primary: 0 84% 50%;
+    --popover-foreground: 40 50% 98%;
+    --primary: 0 85% 50%;
     --primary-foreground: 0 0% 5%;
     --secondary: 0 0% 12%;
-    --secondary-foreground: 42 67% 95%;
+    --secondary-foreground: 40 50% 98%;
     --muted: 0 0% 15%;
-    --muted-foreground: 42 40% 70%;
-    --accent: 0 84% 55%;
+    --muted-foreground: 40 40% 70%;
+    --accent: 0 85% 55%;
     --accent-foreground: 0 0% 5%;
     --destructive: 0 62% 30%;
-    --destructive-foreground: 42 67% 95%;
+    --destructive-foreground: 40 50% 98%;
     --border: 0 0% 20%;
     --input: 0 0% 15%;
-    --ring: 0 84% 50%;
+    --ring: 0 85% 50%;
   }
 }
 
@@ -95,104 +94,107 @@
     letter-spacing: 0.02em;
   }
 
-  .wavy-border {
+  .wavy-separator {
     position: relative;
-  }
-
-  .wavy-border::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 0;
     width: 100%;
-    height: 30px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30' preserveAspectRatio='none'%3E%3Cpath d='M0,15 Q150,0 300,15 T600,15 T900,15 T1200,15 V30 H0 Z' fill='%23FEF3E1'/%3E%3C/svg%3E") repeat-x;
-    background-size: 1200px 30px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23ffffff'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
-  .wavy-border-red::after {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30' preserveAspectRatio='none'%3E%3Cpath d='M0,15 Q150,0 300,15 T600,15 T900,15 T1200,15 V30 H0 Z' fill='%23DC2626'/%3E%3C/svg%3E") repeat-x;
-    background-size: 1200px 30px;
+  /* Polished Button - Clean, solid, no shake */
+  .btn-poster {
+    @apply font-display px-8 py-3 text-lg border-2 border-foreground transition-all duration-300 relative overflow-hidden;
+    background-color: transparent;
+    color: hsl(var(--foreground));
   }
 
-  .sticker-button {
-    @apply font-display px-8 py-4 text-lg border-4 border-foreground transition-all duration-200;
-    box-shadow: 4px 4px 0 0 hsl(var(--foreground));
+  .btn-poster::before {
+    content: '';
+    @apply absolute inset-0 bg-primary z-[-1] transition-transform duration-300 origin-left scale-x-0;
   }
 
-  .sticker-button:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 0 hsl(var(--foreground));
+  .btn-poster:hover {
+    @apply text-primary-foreground border-primary;
+  }
+  
+  .btn-poster:hover::before {
+    @apply scale-x-100;
   }
 
-  .sticker-button:active {
-    transform: translate(4px, 4px);
-    box-shadow: 0px 0px 0 0 hsl(var(--foreground));
+  .btn-poster-filled {
+    @apply btn-poster bg-primary text-primary-foreground border-primary;
+  }
+  
+  .btn-poster-filled:hover {
+    @apply bg-foreground border-foreground text-background;
+  }
+  
+  .btn-poster-filled::before {
+    @apply bg-foreground;
   }
 
-  .food-card {
-    @apply relative overflow-hidden transition-transform duration-300;
+  /* Blended Image Utilities */
+  .image-blend-multiply {
+    mix-blend-mode: multiply;
+  }
+  
+  .image-blend-overlay {
+    mix-blend-mode: overlay;
   }
 
-  .food-card:hover {
-    transform: scale(1.03) rotate(-1deg);
+  .mask-gradient-bottom {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+  
+  .mask-gradient-radial {
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
   }
 
-  .hand-drawn-border {
-    border: 3px solid hsl(var(--foreground));
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  .text-stroke-sm {
+    -webkit-text-stroke: 1px hsl(var(--foreground));
+    color: transparent;
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 2px hsl(var(--foreground));
+    color: transparent;
+  }
+
+  /* Micro-animations */
+  .hover-lift {
+    @apply transition-transform duration-300;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-5px);
   }
 
   .marquee-track {
-    animation: marquee 20s linear infinite;
+    animation: marquee 30s linear infinite;
   }
 
   @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
-
-  .spin-slow {
-    animation: spin 15s linear infinite;
-  }
-
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  .bounce-slow {
-    animation: bounce-slow 3s ease-in-out infinite;
-  }
-
-  @keyframes bounce-slow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  .shake-hover:hover {
-    animation: shake 0.3s ease-in-out;
-  }
-
-  @keyframes shake {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-3deg); }
-    75% { transform: rotate(3deg); }
-  }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--crunchd-cream));
+  background: hsl(var(--background));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--crunchd-red));
-  border: 2px solid hsl(var(--crunchd-cream));
+  background: hsl(var(--primary));
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

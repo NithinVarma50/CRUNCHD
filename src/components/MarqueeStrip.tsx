@@ -1,23 +1,22 @@
 const items = [
-  { emoji: "🍔", text: "BURGER" },
-  { emoji: "🥪", text: "SANDWICH" },
-  { emoji: "🍕", text: "PIZZA" },
-  { emoji: "🍟", text: "FRIES" },
-  { emoji: "🍗", text: "CHICKEN LEG" },
-  { emoji: "🥟", text: "MOMOS" },
-  { emoji: "🍜", text: "NOODLES" },
-  { emoji: "🌶", text: "SPICY" },
+  { text: "BURGER" },
+  { text: "SANDWICH" },
+  { text: "PIZZA" },
+  { text: "FRIES" },
+  { text: "CHICKEN" },
+  { text: "MOMOS" },
+  { text: "NOODLES" },
+  { text: "SPICY" },
 ];
 
 const MarqueeStrip = () => {
   return (
-    <div className="bg-foreground py-4 overflow-hidden border-y-4 border-foreground">
-      <div className="marquee-track flex gap-8 whitespace-nowrap">
+    <div className="bg-foreground py-6 overflow-hidden">
+      <div className="marquee-track flex gap-12 whitespace-nowrap">
         {[...items, ...items, ...items, ...items].map((item, index) => (
-          <span key={index} className="flex items-center gap-2 font-display text-lg md:text-xl text-background">
-            <span className="text-2xl">{item.emoji}</span>
+          <span key={index} className="flex items-center gap-4 font-display text-2xl md:text-4xl text-background tracking-widest opacity-80">
             <span>{item.text}</span>
-            <span className="text-primary mx-4">•</span>
+            <span className="text-primary text-xl relative top-0.5">●</span>
           </span>
         ))}
       </div>

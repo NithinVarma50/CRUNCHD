@@ -6,28 +6,24 @@ import crunchMaggi from "@/assets/crunch-maggi.png";
 const signatureItems = [
   {
     name: "Crunch Chicken Burger",
-    emoji: "🔥",
     image: chickenBurger,
     description: "Double crispy patty, cheese drip, secret sauce",
     price: "₹149",
   },
   {
     name: "Cheese Burst Pizza",
-    emoji: "🧀",
     image: cheesePizza,
     description: "Stuffed crust, triple cheese, loaded toppings",
     price: "₹199",
   },
   {
     name: "Chaat Bomb",
-    emoji: "🌶",
     image: chaatBomb,
     description: "Crispy papdi, tangy chutneys, flavor explosion",
     price: "₹89",
   },
   {
     name: "Crunch Maggi",
-    emoji: "🍜",
     image: crunchMaggi,
     description: "Street-style, cheese loaded, crispy toppings",
     price: "₹79",
@@ -36,61 +32,61 @@ const signatureItems = [
 
 const SignatureHits = () => {
   return (
-    <section className="py-16 md:py-24 bg-primary wavy-border relative">
-      <div className="container mx-auto px-4">
-        <h2 className="font-display text-5xl md:text-7xl text-primary-foreground text-center mb-4">
-          SIGNATURE HITS
-        </h2>
-        <p className="text-primary-foreground/80 text-center text-lg md:text-xl mb-12 md:mb-16">
-          The crowd favorites. The legends. The must-tries.
-        </p>
+    <section className="py-20 md:py-32 bg-primary relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 inset-x-0 h-16 w-full wavy-separator rotate-180 transform -translate-y-1 bg-background z-10"></div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div className="container mx-auto px-6 relative z-20">
+        <div className="text-center mb-16 md:mb-24 space-y-4">
+          <h2 className="font-display text-5xl md:text-8xl text-primary-foreground tracking-tighter">
+            SIGNATURE HITS
+          </h2>
+          <p className="text-primary-foreground/90 font-body text-xl md:text-2xl max-w-2xl mx-auto border-b-2 border-primary-foreground/20 pb-4 inline-block">
+            The crowd favorites. The legends. The must-tries.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {signatureItems.map((item, index) => (
-            <div 
+            <div
               key={index}
-              className="food-card bg-background border-4 border-foreground p-6 group"
-              style={{ 
-                boxShadow: "8px 8px 0 0 hsl(var(--foreground))",
-              }}
+              className="group relative bg-background p-6 transition-all duration-300 hover:-translate-y-2"
             >
-              {/* Emoji badge */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-2xl border-4 border-foreground z-10 group-hover:animate-pulse-scale">
-                {item.emoji}
-              </div>
+              {/* Card Border Effect */}
+              <div className="absolute inset-0 border-2 border-foreground translate-x-1 translate-y-1 transition-transform group-hover:translate-x-2 group-hover:translate-y-2 pointer-events-none"></div>
 
-              {/* Food image */}
-              <div className="relative h-40 mb-4 overflow-hidden">
-                <img 
-                  src={item.image} 
+              {/* Image Area */}
+              <div className="relative h-48 mb-6 flex items-center justify-center">
+                <div className="absolute inset-0 bg-secondary/50 rounded-full scale-75 blur-xl group-hover:scale-100 transition-transform duration-500"></div>
+                <img
+                  src={item.image}
                   alt={item.name}
-                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-full object-contain drop-shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
                 />
-                {/* Sauce splash on hover */}
-                <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full blur-2xl" />
               </div>
 
               {/* Content */}
-              <h3 className="font-display text-xl md:text-2xl text-foreground mb-2">
-                {item.name}
-              </h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                {item.description}
-              </p>
-              
-              {/* Price and CTA */}
-              <div className="flex items-center justify-between">
-                <span className="font-display text-2xl text-primary">
-                  {item.price}
-                </span>
-                <button className="font-display text-sm bg-foreground text-background px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors">
-                  ADD →
-                </button>
+              <div className="text-center space-y-2">
+                <h3 className="font-display text-2xl text-foreground leading-none">
+                  {item.name}
+                </h3>
+                <p className="text-muted-foreground text-sm font-medium">
+                  {item.description}
+                </p>
+                <div className="pt-4 flex items-center justify-center gap-4">
+                  <span className="font-display text-3xl text-primary mr-2">{item.price}</span>
+                  <button className="btn-poster-filled text-xs px-4 py-2">
+                    ADD TO CART
+                  </button>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Bottom wave */}
+      <div className="absolute bottom-0 inset-x-0 h-16 w-full wavy-separator bg-background transform translate-y-1 z-10"></div>
     </section>
   );
 };
