@@ -3,10 +3,10 @@ import Hero from "@/components/Hero";
 import BrandStatement from "@/components/BrandStatement";
 import SignatureHits from "@/components/SignatureHits";
 import MarqueeStrip from "@/components/MarqueeStrip";
-import FullMenu from "@/components/FullMenu";
+import FlavorAdventure from "@/components/FlavorAdventure";
 import Reviews from "@/components/Reviews";
+import FuelUp from "@/components/FuelUp";
 import Location from "@/components/Location";
-import CTAStrip from "@/components/CTAStrip";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -17,11 +17,11 @@ const Index = () => {
         <Hero />
         <BrandStatement />
         <SignatureHits />
-        <MarqueeStrip />
-        <FullMenu />
+        <FlavorAdventure />
         <Reviews />
+        <MarqueeStrip />
+        <FuelUp />
         <Location />
-        <CTAStrip />
       </main>
       <Footer />
     </div>
