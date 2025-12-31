@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Space Grotesk", "Anton", "sans-serif"],
-        body: ["Space Grotesk", "Inter", "system-ui", "sans-serif"],
+        display: ["Anton", "sans-serif"],
+        body: ["Anton", "Inter", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

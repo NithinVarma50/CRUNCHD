@@ -79,7 +79,7 @@
 
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground;
-    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    font-family: 'Anton', 'Inter', system-ui, sans-serif;
   }
 
   h1,
@@ -88,8 +88,9 @@
   h4,
   h5,
   h6 {
-    font-family: 'Space Grotesk', 'Anton', sans-serif;
-    font-weight: 700;
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    /* Anton is usually a single weight, often bold-ish by default */
     text-transform: uppercase;
     letter-spacing: 0.02em;
   }
@@ -97,8 +98,8 @@
 
 @layer components {
   .font-display {
-    font-family: 'Space Grotesk', 'Anton', sans-serif;
-    font-weight: 700;
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.02em;
   }
