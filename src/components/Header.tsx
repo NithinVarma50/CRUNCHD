@@ -1,79 +1,65 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
-    setIsMenuOpen(false);
-  };
+  const location = useLocation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary border-b-4 border-foreground">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <h1 
-          className="font-display text-3xl md:text-4xl text-primary-foreground cursor-pointer"
-          onClick={() => scrollToSection("hero")}
-        >
-          CRUNCHD
-        </h1>
+    <header className="fixed top-0 left-0 right-0 z-50">
+      <div className="bg-foreground mx-4 md:mx-8 mt-4 rounded-sm">
+        <div className="px-6 py-4 flex items-center justify-between">
+          <Link to="/" className="font-display text-2xl md:text-3xl text-background">
+            CRUNCHD
+          </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          <button 
-            onClick={() => scrollToSection("menu")}
-            className="font-display text-lg text-primary-foreground hover:underline underline-offset-4 transition-all"
-          >
-            MENU
-          </button>
-          <button 
-            onClick={() => scrollToSection("reviews")}
-            className="font-display text-lg text-primary-foreground hover:underline underline-offset-4 transition-all"
-          >
-            REVIEWS
-          </button>
-          <button 
-            onClick={() => scrollToSection("location")}
-            className="sticker-button bg-primary-foreground text-foreground"
-          >
-            FIND US
-          </button>
-        </nav>
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-2">
+            <Link 
+              to="/menu"
+              className="font-display text-base bg-background text-foreground px-6 py-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              MENU
+            </Link>
+          </nav>
 
-        {/* Mobile Menu Toggle */}
-        <button 
-          className="md:hidden text-primary-foreground"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
-        </button>
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="md:hidden text-background"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {/* Mobile Nav */}
+        {isMenuOpen && (
+          <nav className="md:hidden border-t border-background/20 py-4 px-6 flex flex-col gap-3">
+            <Link 
+              to="/menu"
+              onClick={() => setIsMenuOpen(false)}
+              className="font-display text-xl text-background hover:text-primary transition-colors"
+            >
+              MENU
+            </Link>
+            <Link 
+              to="/#reviews"
+              onClick={() => setIsMenuOpen(false)}
+              className="font-display text-xl text-background hover:text-primary transition-colors"
+            >
+              REVIEWS
+            </Link>
+            <Link 
+              to="/#location"
+              onClick={() => setIsMenuOpen(false)}
+              className="font-display text-xl text-background hover:text-primary transition-colors"
+            >
+              FIND US
+            </Link>
+          </nav>
+        )}
       </div>
-
-      {/* Mobile Nav */}
-      {isMenuOpen && (
-        <nav className="md:hidden bg-primary border-t-4 border-foreground py-6 px-4 flex flex-col gap-4">
-          <button 
-            onClick={() => scrollToSection("menu")}
-            className="font-display text-2xl text-primary-foreground text-left hover:underline"
-          >
-            MENU
-          </button>
-          <button 
-            onClick={() => scrollToSection("reviews")}
-            className="font-display text-2xl text-primary-foreground text-left hover:underline"
-          >
-            REVIEWS
-          </button>
-          <button 
-            onClick={() => scrollToSection("location")}
-            className="font-display text-2xl text-primary-foreground text-left hover:underline"
-          >
-            FIND US
-          </button>
-        </nav>
-      )}
     </header>
   );
 };

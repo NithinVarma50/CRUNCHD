@@ -1,80 +1,75 @@
-import chickenBurger from "@/assets/chicken-burger.png";
-import cheesePizza from "@/assets/cheese-pizza.png";
+import { Link } from "react-router-dom";
+import cafeIllustration from "@/assets/cafe-illustration.png";
 
 const Hero = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section id="hero" className="relative min-h-screen bg-primary pt-24 pb-16 overflow-hidden wavy-border">
-      {/* Hand-drawn doodles */}
-      <div className="absolute top-32 left-4 md:left-12 text-primary-foreground opacity-60">
-        <svg width="60" height="40" viewBox="0 0 60 40" fill="none" className="bounce-slow">
-          <path d="M5 35 Q30 5 55 25" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round"/>
-          <path d="M45 15 L55 25 L45 30" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+    <section id="hero" className="relative min-h-screen bg-primary pt-28 pb-0 overflow-hidden">
+      {/* Hand-drawn cloud doodles */}
+      <div className="absolute top-32 right-8 md:right-16 text-primary-foreground/40">
+        <svg width="80" height="40" viewBox="0 0 80 40" fill="none">
+          <ellipse cx="25" cy="25" rx="20" ry="12" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <ellipse cx="45" cy="20" rx="18" ry="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <ellipse cx="60" cy="25" rx="15" ry="10" stroke="currentColor" strokeWidth="2" fill="none"/>
         </svg>
       </div>
-      <div className="absolute top-40 right-8 md:right-20 text-primary-foreground opacity-60">
-        <svg width="80" height="50" viewBox="0 0 80 50" fill="none" className="animate-float">
-          <ellipse cx="40" cy="25" rx="35" ry="20" stroke="currentColor" strokeWidth="2" fill="none" strokeDasharray="8 4"/>
+      <div className="absolute top-40 left-8 text-primary-foreground/40">
+        <svg width="60" height="30" viewBox="0 0 60 30" fill="none">
+          <ellipse cx="20" cy="18" rx="15" ry="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <ellipse cx="40" cy="15" rx="12" ry="8" stroke="currentColor" strokeWidth="2" fill="none"/>
         </svg>
       </div>
 
-      {/* Floating food images */}
-      <img 
-        src={chickenBurger} 
-        alt="Crispy chicken burger" 
-        className="absolute -right-20 md:right-10 top-1/3 w-48 md:w-72 lg:w-96 animate-float opacity-90 rotate-12 hidden sm:block"
-      />
-      <img 
-        src={cheesePizza} 
-        alt="Cheese burst pizza" 
-        className="absolute -left-16 md:left-10 bottom-32 w-40 md:w-64 lg:w-80 animate-float opacity-90 -rotate-12 hidden sm:block"
-        style={{ animationDelay: "1s" }}
-      />
+      <div className="container mx-auto px-4 relative z-10 text-center">
+        {/* THE subtitle */}
+        <p className="font-display text-2xl md:text-3xl text-primary-foreground mb-2">
+          THE
+        </p>
+        
+        {/* Main Title */}
+        <h1 className="font-display text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[12rem] text-primary-foreground leading-[0.85] tracking-tight">
+          CRUNCHD
+        </h1>
+        
+        {/* Tagline */}
+        <p className="font-display text-lg sm:text-xl md:text-2xl text-primary-foreground/90 mt-4 md:mt-6 tracking-wide">
+          THE AMAZING FOOD YOU EVER TASTED
+        </p>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center pt-12 md:pt-24">
-          {/* Main Title */}
-          <h1 className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] text-primary-foreground leading-none tracking-tight">
-            CRUNCHD
-          </h1>
-          
-          {/* Tagline */}
-          <p className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-foreground mt-4 md:mt-6">
-            STREET FOOD. EXTRA CRUNCH.
-          </p>
-
-          {/* Subtext */}
-          <p className="text-primary-foreground/80 text-lg md:text-xl mt-6 md:mt-8 font-body italic max-w-md mx-auto">
-            "Built for cravings. Served loud. Gone fast."
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10 md:mt-14">
-            <button 
-              onClick={() => scrollToSection("menu")}
-              className="sticker-button bg-primary-foreground text-foreground text-xl"
-            >
-              VIEW MENU
-            </button>
-            <button 
-              onClick={() => scrollToSection("location")}
-              className="sticker-button bg-transparent text-primary-foreground border-primary-foreground text-xl"
-            >
-              FIND US
-            </button>
-          </div>
-
-          {/* Bite mark decoration */}
-          <div className="absolute bottom-10 left-1/4 text-primary-foreground/40 hidden lg:block">
-            <svg width="80" height="60" viewBox="0 0 80 60" fill="currentColor">
-              <path d="M10 30 Q20 10 40 20 Q60 30 70 15 L65 45 Q45 55 25 50 Q10 45 10 30Z"/>
-            </svg>
-          </div>
+        {/* Cafe Illustration */}
+        <div className="mt-8 md:mt-12 relative max-w-2xl mx-auto">
+          <img 
+            src={cafeIllustration} 
+            alt="CRUNCHD Cafe" 
+            className="w-full h-auto max-h-[300px] md:max-h-[400px] object-contain filter brightness-0 invert opacity-90"
+          />
         </div>
+
+        {/* CTA Button */}
+        <div className="mt-8 pb-24">
+          <Link 
+            to="/#location"
+            className="inline-block font-display text-base md:text-lg bg-primary-foreground text-primary px-8 py-3 border-2 border-foreground hover:bg-foreground hover:text-background transition-all duration-200"
+            style={{ boxShadow: "4px 4px 0 0 hsl(var(--foreground))" }}
+          >
+            FIND LOCATION
+          </Link>
+        </div>
+      </div>
+
+      {/* Drip border at bottom */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg 
+          viewBox="0 0 1440 80" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-auto"
+          preserveAspectRatio="none"
+        >
+          <path 
+            d="M0 0H1440V40C1440 40 1400 80 1350 40C1300 0 1260 80 1200 40C1140 0 1100 80 1050 40C1000 0 960 80 900 40C840 0 800 80 750 40C700 0 660 80 600 40C540 0 500 80 450 40C400 0 360 80 300 40C240 0 200 80 150 40C100 0 60 80 0 40V0Z" 
+            fill="hsl(42, 67%, 95%)"
+          />
+        </svg>
       </div>
     </section>
   );
