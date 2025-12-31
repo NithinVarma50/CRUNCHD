@@ -81,7 +81,7 @@ export function FloatingFoodHero({
     return (
         <section
             className={cn(
-                'relative w-full min-h-[60vh] lg:min-h-[80vh] flex items-center justify-center overflow-hidden bg-background py-20 md:py-32',
+                'relative w-full min-h-[60vh] lg:min-h-[80vh] flex items-center justify-center overflow-hidden bg-background py-24 md:py-32',
                 className
             )}
         >
@@ -103,16 +103,16 @@ export function FloatingFoodHero({
             </div>
 
             {/* Text Content */}
-            <div className="relative z-20 container mx-auto px-4 text-center max-w-4xl flex flex-col items-center">
-                <h1 className="text-4xl font-display tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl leading-none">
+            <div className="relative z-20 container mx-auto px-4 text-center max-w-5xl flex flex-col items-center">
+                <h1 className="text-6xl font-display tracking-tight text-foreground sm:text-8xl md:text-9xl lg:text-[10rem] leading-[0.85] uppercase drop-shadow-sm pointer-events-none">
                     {title}
                 </h1>
-                <p className="mt-6 text-lg sm:text-xl md:text-2xl leading-8 text-muted-foreground max-w-2xl font-body">
+                <p className="mt-8 text-2xl sm:text-3xl md:text-5xl leading-tight text-foreground font-display max-w-4xl uppercase tracking-wide">
                     {description}
                 </p>
 
                 {children && (
-                    <div className="mt-8">
+                    <div className="mt-12 relative z-30">
                         {children}
                     </div>
                 )}
