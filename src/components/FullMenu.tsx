@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const menuCategories = [
   {
-    name: "CHICKEN MODE",
+    name: "CHICKEN MODE 🐔",
     items: [
       { name: "Crunch Chicken Fried Rice", price: "₹129" },
       { name: "Spicy Chicken Noodles", price: "₹119" },
@@ -13,7 +13,7 @@ const menuCategories = [
     ],
   },
   {
-    name: "BURGER & PIZZA",
+    name: "BURGER & PIZZA CLUB 🍔",
     items: [
       { name: "Classic Crunch Burger", price: "₹129" },
       { name: "Double Patty Smash Burger", price: "₹179" },
@@ -24,7 +24,7 @@ const menuCategories = [
     ],
   },
   {
-    name: "MOMO & WRAP",
+    name: "MOMO & WRAP ZONE 🥟",
     items: [
       { name: "Veg Steam Momos", price: "₹79" },
       { name: "Fried Chicken Momos", price: "₹99" },
@@ -34,7 +34,7 @@ const menuCategories = [
     ],
   },
   {
-    name: "PASTA & NOODLES",
+    name: "PASTA & NOODLE LAB 🍝",
     items: [
       { name: "White Sauce Pasta", price: "₹129" },
       { name: "Red Sauce Pasta", price: "₹119" },
@@ -44,7 +44,7 @@ const menuCategories = [
     ],
   },
   {
-    name: "SIDES",
+    name: "SIDES & CHAOS 🍟",
     items: [
       { name: "Peri Peri Fries", price: "₹79" },
       { name: "Cheese Loaded Fries", price: "₹99" },
@@ -53,7 +53,7 @@ const menuCategories = [
     ],
   },
   {
-    name: "DRINKS",
+    name: "DRINKS 🧃",
     items: [
       { name: "Cold Coffee Chaos", price: "₹79" },
       { name: "Oreo Shake", price: "₹99" },
@@ -71,10 +71,10 @@ const FullMenu = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-display text-5xl md:text-8xl text-foreground">
-            THE MENU
+            FULL MENU
           </h2>
-          <p className="text-muted-foreground text-xl">
-            Pick your poison. No judgement.
+          <p className="text-muted-foreground text-xl font-display uppercase tracking-widest text-primary">
+            CRUNCHD EDITION
           </p>
         </div>
 

@@ -70,14 +70,11 @@ const SignatureHits = () => {
                 <h3 className="font-display text-2xl text-foreground leading-none">
                   {item.name}
                 </h3>
-                <p className="text-muted-foreground text-sm font-medium">
-                  {item.description}
-                </p>
                 <div className="pt-4 flex items-center justify-center gap-4">
-                  <span className="font-display text-3xl text-primary mr-2">{item.price}</span>
-                  <button className="btn-poster-filled text-xs px-4 py-2">
-                    ADD TO CART
+                  <button className="btn-poster-filled text-xs px-4 py-2 hover:scale-105 transition-transform">
+                    ADD TO PLATE →
                   </button>
+                  {/* Hover Splash Effect handled via CSS utility or just implicit in the button style */}
                 </div>
               </div>
             </div>

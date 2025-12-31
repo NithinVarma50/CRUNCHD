@@ -42,11 +42,11 @@ const BrandStatement = () => {
           <div className="spin-slow w-48 h-48 md:w-64 md:h-64 relative">
             <svg viewBox="0 0 200 200" className="w-full h-full">
               <defs>
-                <path id="circlePath" d="M 100, 100 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0"/>
+                <path id="circlePath" d="M 100, 100 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" />
               </defs>
               <text className="font-display text-sm md:text-base fill-foreground">
                 <textPath href="#circlePath">
-                  CRUNCHD • CRUNCHD • CRUNCHD • CRUNCHD • CRUNCHD • 
+                  CRUNCHD • CRUNCHD • CRUNCHD • CRUNCHD • CRUNCHD •
                 </textPath>
               </text>
             </svg>

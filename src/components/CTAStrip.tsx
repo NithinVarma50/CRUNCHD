@@ -11,13 +11,13 @@ const CTAStrip = () => {
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <h2 className="font-display text-5xl md:text-7xl lg:text-9xl text-primary-foreground mb-12 tracking-tighter leading-none">
-          READY TO<br />CRUNCH?
+          READY FOR A<br />FLAVOR ADVENTURE?
         </h2>
         <button
           onClick={scrollToMenu}
           className="btn-poster bg-background text-foreground border-2 border-background hover:bg-transparent hover:text-background text-xl md:text-2xl px-12 py-6"
         >
-          ORDER NOW
+          COME GET CRUNCHD
         </button>
       </div>
     </section>
