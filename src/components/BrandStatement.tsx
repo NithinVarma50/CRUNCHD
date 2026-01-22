@@ -1,3 +1,30 @@
+import { ConnoisseurStackInteractor } from "@/components/ui/connoisseur-stack-interactor";
+
+import chickenBurger from "@/assets/chicken-burger.png";
+import cheesePizza from "@/assets/cheese-pizza.png";
+import chaatBomb from "@/assets/chaat-bomb.png";
+
+const menuItems = [
+  {
+    num: "01",
+    name: "Crunch Burgers",
+    clipId: "clip-original",
+    image: chickenBurger
+  },
+  {
+    num: "02",
+    name: "Cheese Pizza",
+    clipId: "clip-hexagons",
+    image: cheesePizza
+  },
+  {
+    num: "03",
+    name: "Chaat Bomb",
+    clipId: "clip-pixels",
+    image: chaatBomb
+  }
+];
+
 const BrandStatement = () => {
   return (
     <>
@@ -41,24 +68,9 @@ const BrandStatement = () => {
         </div>
       </section>
 
-      {/* Part 2: Spinning Text (Cream/Default Background) */}
-      <section className="py-16 bg-background flex justify-center border-b border-border/10">
-        <div className="spin-slow w-48 h-48 md:w-64 md:h-64 relative opacity-90 hover:opacity-100 transition-opacity">
-          <svg viewBox="0 0 200 200" className="w-full h-full">
-            <defs>
-              <path id="circlePath" d="M 100, 100 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" />
-            </defs>
-            {/* Text updated to Primary (Red) for contrast on Cream */}
-            <text className="font-display text-sm md:text-base fill-primary tracking-widest">
-              <textPath href="#circlePath">
-                CRUNCHD • CRUNCHD • CRUNCHD • CRUNCHD • CRUNCHD •
-              </textPath>
-            </text>
-          </svg>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-6xl">🔥</span>
-          </div>
-        </div>
+      {/* Part 2: Interactive GSAP Animation (Cream/Default Background) */}
+      <section className="py-16 bg-background border-b border-border/10">
+        <ConnoisseurStackInteractor items={menuItems} />
       </section>
     </>
   );
