@@ -18,15 +18,15 @@ const defaultItems: MenuItem[] = [
   },
   {
     num: "02",
-    name: "Fresh Desserts",
+    name: "Chaat Bomb",
     clipId: "clip-hexagons",
-    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   },
   {
     num: "03",
-    name: "Artisan Waffles",
+    name: "Cheese Pizza",
     clipId: "clip-pixels",
-    image: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   }
 ];
 
@@ -125,12 +125,14 @@ export const ConnoisseurStackInteractor = ({
                     )}>
                       {item.name.split(' ')[0]}
                     </span>
-                    <span className={cn(
-                      "font-display text-xl md:text-2xl lg:text-3xl tracking-tight transition-all duration-300",
-                      activeIndex === index ? "text-primary" : "text-muted-foreground/40"
-                    )}>
-                      {item.name.split(' ')[1]}
-                    </span>
+                    {item.name.split(' ')[1] && (
+                      <span className={cn(
+                        "font-display text-xl md:text-2xl lg:text-3xl tracking-tight transition-all duration-300",
+                        activeIndex === index ? "text-primary" : "text-muted-foreground/40"
+                      )}>
+                        {item.name.split(' ')[1]}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -142,7 +144,7 @@ export const ConnoisseurStackInteractor = ({
       {/* RIGHT SIDE: SQUARE GRID (Sharp Squares) */}
       <div className="w-full lg:w-1/2 flex items-center justify-center">
         <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-          <svg viewBox="0 0 300 300" className="w-full h-full">
+          <svg viewBox="0 0 300 300" className="w-full h-full overflow-visible">
             <defs>
               <clipPath id="clip-original">
                 <rect className="path" x="0" y="0" width="100" height="100" rx="4" />
@@ -181,6 +183,8 @@ export const ConnoisseurStackInteractor = ({
               <image 
                 ref={imageRef} 
                 href={items[0].image} 
+                x="0"
+                y="0"
                 width="300" 
                 height="300" 
                 preserveAspectRatio="xMidYMid slice" 
