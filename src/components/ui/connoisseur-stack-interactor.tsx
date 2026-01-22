@@ -13,13 +13,13 @@ const defaultItems: MenuItem[] = [
   {
     num: "01",
     name: "Gourmet Burgers",
-    clipId: "clip-original",
+    clipId: "clip-pixels",
     image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   },
   {
     num: "02",
     name: "Chaat Bomb",
-    clipId: "clip-hexagons",
+    clipId: "clip-pixels",
     image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   },
   {
