@@ -9,15 +9,15 @@ const menuItems = [
   },
   {
     num: "02",
-    name: "Fresh Desserts",
+    name: "Chaat Bomb",
     clipId: "clip-hexagons",
-    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   },
   {
     num: "03",
-    name: "Artisan Waffles",
+    name: "Cheese Pizza",
     clipId: "clip-pixels",
-    image: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   }
 ];
 
