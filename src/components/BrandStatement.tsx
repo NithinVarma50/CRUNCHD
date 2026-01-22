@@ -1,27 +1,23 @@
 import { ConnoisseurStackInteractor } from "@/components/ui/connoisseur-stack-interactor";
 
-import chickenBurger from "@/assets/chicken-burger.png";
-import cheesePizza from "@/assets/cheese-pizza.png";
-import chaatBomb from "@/assets/chaat-bomb.png";
-
 const menuItems = [
   {
     num: "01",
-    name: "Crunch Burgers",
+    name: "Gourmet Burgers",
     clipId: "clip-original",
-    image: chickenBurger
+    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   },
   {
     num: "02",
-    name: "Cheese Pizza",
+    name: "Fresh Desserts",
     clipId: "clip-hexagons",
-    image: cheesePizza
+    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   },
   {
     num: "03",
-    name: "Chaat Bomb",
+    name: "Artisan Waffles",
     clipId: "clip-pixels",
-    image: chaatBomb
+    image: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   }
 ];
 

@@ -142,46 +142,51 @@ export const ConnoisseurStackInteractor = ({
       {/* RIGHT SIDE: SQUARE GRID (Sharp Squares) */}
       <div className="w-full lg:w-1/2 flex items-center justify-center">
         <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-        
-        <svg viewBox="0 0 300 300" className="w-full h-full">
-          <defs>
-            <clipPath id="clip-original">
-              <rect className="path" x="0" y="0" width="100" height="100" rx="4" />
-              <rect className="path" x="100" y="0" width="100" height="100" rx="4" />
-              <rect className="path" x="200" y="0" width="100" height="100" rx="4" />
-              <rect className="path" x="0" y="100" width="100" height="100" rx="4" />
-              <rect className="path" x="200" y="100" width="100" height="100" rx="4" />
-            </clipPath>
+          <svg viewBox="0 0 300 300" className="w-full h-full">
+            <defs>
+              <clipPath id="clip-original">
+                <rect className="path" x="0" y="0" width="100" height="100" rx="4" />
+                <rect className="path" x="100" y="0" width="100" height="100" rx="4" />
+                <rect className="path" x="200" y="0" width="100" height="100" rx="4" />
+                <rect className="path" x="0" y="100" width="100" height="100" rx="4" />
+                <rect className="path" x="200" y="100" width="100" height="100" rx="4" />
+              </clipPath>
 
-            <clipPath id="clip-hexagons">
-              <rect className="path" x="100" y="0" width="100" height="100" rx="4" />
-              <rect className="path" x="0" y="100" width="100" height="100" rx="4" />
-              <rect className="path" x="100" y="100" width="100" height="100" rx="4" />
-              <rect className="path" x="200" y="100" width="100" height="100" rx="4" />
-              <rect className="path" x="0" y="200" width="100" height="100" rx="4" />
-              <rect className="path" x="200" y="200" width="100" height="100" rx="4" />
-            </clipPath>
+              <clipPath id="clip-hexagons">
+                <rect className="path" x="100" y="0" width="100" height="100" rx="4" />
+                <rect className="path" x="0" y="100" width="100" height="100" rx="4" />
+                <rect className="path" x="100" y="100" width="100" height="100" rx="4" />
+                <rect className="path" x="200" y="100" width="100" height="100" rx="4" />
+                <rect className="path" x="0" y="200" width="100" height="100" rx="4" />
+                <rect className="path" x="200" y="200" width="100" height="100" rx="4" />
+              </clipPath>
 
-            {/* Grid Squares with rx="4" as requested */}
-            <clipPath id="clip-pixels">
-              {Array.from({ length: 9 }).map((_, i) => (
-                <rect
-                  key={i}
-                  className="path"
-                  x={(i % 3) * 100}
-                  y={Math.floor(i / 3) * 100}
-                  width="100"
-                  height="100"
-                  rx="4"
-                />
-              ))}
-            </clipPath>
-          </defs>
+              {/* Grid Squares with rx="4" as requested */}
+              <clipPath id="clip-pixels">
+                {Array.from({ length: 9 }).map((_, i) => (
+                  <rect
+                    key={i}
+                    className="path"
+                    x={(i % 3) * 100}
+                    y={Math.floor(i / 3) * 100}
+                    width="100"
+                    height="100"
+                    rx="4"
+                  />
+                ))}
+              </clipPath>
+            </defs>
 
-          <g ref={mainGroupRef} clipPath="url(#clip-original)">
-            <image ref={imageRef} href={items[0].image} width="300" height="300" preserveAspectRatio="xMidYMid slice" />
-          </g>
-        </svg>
+            <g ref={mainGroupRef} clipPath="url(#clip-original)">
+              <image 
+                ref={imageRef} 
+                href={items[0].image} 
+                width="300" 
+                height="300" 
+                preserveAspectRatio="xMidYMid slice" 
+              />
+            </g>
+          </svg>
         </div>
       </div>
     </div>
